@@ -1,0 +1,3 @@
+[submodule "android-base-library"]
+	path = android-base-library
+	url = https://github.com/YKW93/android-base-library.git
