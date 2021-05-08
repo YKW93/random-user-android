@@ -3,6 +3,7 @@ package com.wayne.randomuser.domain.usecase
 import com.wayne.randomuser.domain.model.User
 import com.wayne.randomuser.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
 
