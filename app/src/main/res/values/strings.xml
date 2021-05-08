@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">RandomUser</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="user_name_format">Name : %s</string>
+    <string name="user_gender_cell_format">Gender : %s , Cell : %s</string>
+    <string name="user_email_format">Email : %s</string>
 </resources>
