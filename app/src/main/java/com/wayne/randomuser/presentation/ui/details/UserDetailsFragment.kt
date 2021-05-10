@@ -13,13 +13,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
-class UserDetailsFragment :
-    BaseFragment<FragmentUserDetailsBinding>(R.layout.fragment_user_details) {
+class UserDetailsFragment : BaseFragment<FragmentUserDetailsBinding, UserDetailsViewModel>(
+    R.layout.fragment_user_details,
+    UserDetailsViewModel::class
+) {
 
     private val safeArgs: UserDetailsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        print("ddd")
     }
 }

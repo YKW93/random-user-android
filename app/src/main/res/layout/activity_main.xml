@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.wayne.randomuser.presentation.base.EmptyViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

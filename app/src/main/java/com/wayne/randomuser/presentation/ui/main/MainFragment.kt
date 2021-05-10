@@ -13,12 +13,13 @@ import com.wayne.library.utils.EndlessRVScrollListener
 import com.wayne.randomuser.R
 import com.wayne.randomuser.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.reflect.KClass
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
-    SwipeRefreshLayout.OnRefreshListener {
-
-    private val viewModel: MainViewModel by viewModels()
+class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
+    R.layout.fragment_main,
+    MainViewModel::class
+), SwipeRefreshLayout.OnRefreshListener {
 
     private val mainAdapter by lazy {
         MainAdapter {
@@ -29,7 +30,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.vm = viewModel
         initUserListRV()
         initSwipeRefreshLayout()
     }
