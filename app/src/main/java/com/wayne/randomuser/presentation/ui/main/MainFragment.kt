@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.wayne.library.base.BaseFragment
@@ -20,7 +21,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
     private val viewModel: MainViewModel by viewModels()
 
     private val mainAdapter by lazy {
-        MainAdapter()
+        MainAdapter {
+            val action = MainFragmentDirections.actionMainFragmentToUserDetailsFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

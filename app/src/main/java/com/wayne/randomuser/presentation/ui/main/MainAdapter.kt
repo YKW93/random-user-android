@@ -9,12 +9,21 @@ import com.wayne.randomuser.databinding.ItemUserBinding
 import com.wayne.randomuser.presentation.model.UserPresentation
 
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.MainVH>() {
+class MainAdapter(private val onItemClick: (UserPresentation) -> Unit) :
+    RecyclerView.Adapter<MainAdapter.MainVH>() {
 
     val items: MutableList<UserPresentation> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainVH {
-        return MainVH(ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MainVH(
+            ItemUserBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        ).apply {
+            binding.root.setOnClickListener { binding.item?.let(onItemClick) }
+        }
     }
 
     override fun onBindViewHolder(holder: MainVH, position: Int) {
@@ -23,7 +32,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainVH>() {
 
     override fun getItemCount(): Int = items.size
 
-    inner class MainVH(private val binding: ItemUserBinding) :
+    inner class MainVH(val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
