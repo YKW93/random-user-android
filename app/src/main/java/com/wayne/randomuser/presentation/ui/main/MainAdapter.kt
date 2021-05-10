@@ -37,7 +37,7 @@ fun RecyclerView.bindAddUserList(items: List<UserPresentation>?) {
     items.whenNotNullNorEmpty { userList ->
         (adapter as? MainAdapter)?.let { adapter ->
             adapter.items.addAll(userList.toList())
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemRangeChanged(adapter.itemCount - userList.size, userList.size)
         }
     }
 }

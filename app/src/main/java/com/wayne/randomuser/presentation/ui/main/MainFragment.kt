@@ -26,7 +26,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-        observeViewModelLiveData()
         initUserListRV()
         initSwipeRefreshLayout()
     }
@@ -34,12 +33,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main),
     override fun onRefresh() {
         mainAdapter.items.clear()
         viewModel.getUserList(0)
-    }
-
-    private fun observeViewModelLiveData() {
-        viewModel.isLoading.observe(viewLifecycleOwner, {
-            binding.srlUserList.isRefreshing = it
-        })
     }
 
     private fun initUserListRV() {
