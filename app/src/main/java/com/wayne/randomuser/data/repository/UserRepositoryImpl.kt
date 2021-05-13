@@ -15,7 +15,7 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(private val userRemoteDataSource: UserRemoteDataSource) :
     UserRepository {
 
-    override suspend fun getUsers(page: Int, results: Int): Flow<List<User>> = flow {
+    override fun getUsers(page: Int, results: Int): Flow<List<User>> = flow {
         emit(
             userRemoteDataSource.getUsers(page, results).results
                 .map(UserResponse.Result::toDomain)

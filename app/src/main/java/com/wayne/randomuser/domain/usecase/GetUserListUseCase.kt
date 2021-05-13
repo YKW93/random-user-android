@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 
 class GetUserListUseCase @Inject constructor(private val userRepository: UserRepository) {
-    suspend operator fun invoke(page: Int, results: Int): Flow<List<User>> {
+    operator fun invoke(page: Int, results: Int): Flow<List<User>> {
         return userRepository.getUsers(page, results)
     }
 }
