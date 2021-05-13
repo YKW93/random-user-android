@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.wayne.library.base.BaseFragment
 import com.wayne.randomuser.R
@@ -18,7 +19,7 @@ class UserDetailsFragment : BaseFragment<FragmentUserDetailsBinding, UserDetails
     UserDetailsViewModel::class
 ) {
 
-    private val safeArgs: UserDetailsFragmentArgs by navArgs()
+    override val navArgs: UserDetailsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

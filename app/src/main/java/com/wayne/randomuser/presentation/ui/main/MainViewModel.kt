@@ -35,4 +35,8 @@ class MainViewModel @Inject constructor(private val getUserListUseCase: GetUserL
     fun getUserList(page: Int) {
         userListPageLiveData.value = page
     }
+
+    fun goToUserDetails(value: UserPresentation) {
+        navDirections.value = MainFragmentDirections.actionMainFragmentToUserDetailsFragment(value)
+    }
 }

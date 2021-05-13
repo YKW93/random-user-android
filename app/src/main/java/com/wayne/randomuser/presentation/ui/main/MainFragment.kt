@@ -22,10 +22,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
 ), SwipeRefreshLayout.OnRefreshListener {
 
     private val mainAdapter by lazy {
-        MainAdapter {
-            val action = MainFragmentDirections.actionMainFragmentToUserDetailsFragment(it)
-            findNavController().navigate(action)
-        }
+        MainAdapter(viewModel::goToUserDetails)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
