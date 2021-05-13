@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">RandomUser</string>
+    <string name="user_details_header_title">유저 상세 화면</string>
 
     <string name="user_name_format">Name : %s</string>
     <string name="user_gender_cell_format">Gender : %s , Cell : %s</string>
+    <string name="user_gender_format">Gender : %s</string>
+    <string name="user_cell_format">Cell : %s</string>
     <string name="user_email_format">Email : %s</string>
 </resources>
